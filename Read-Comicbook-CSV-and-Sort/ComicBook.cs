@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 
 
-/// Lab 1 was created by Norman Potts.
-namespace Lab1
+
+namespace Read_Comicbook_CSV_and_Sort
 {
 
     /// <summary>

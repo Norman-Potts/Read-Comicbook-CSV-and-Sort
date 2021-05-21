@@ -21,29 +21,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab1
-{
+
+namespace Read_Comicbook_CSV_and_Sort
+{ 
     // compile with: /doc:DocLab1.xml 
 
-    
+
     /// <summary> 
     /// This Program is a C# class for Lab 1 of Advanced Programming in .Net
     /// </summary>
     class Program
-    {        
-    
-        
+    {
+
+
         /// <summary> 
         ///  The main method for this program. Parameter Args not used.
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            ComicBook[] books = Read();                               
-            if ( books != null)
-            {                
-                MenuInputManagement(books);                                          
-            }                      
+            ComicBook[] books = Read();
+            if (books != null)
+            {
+                MenuInputManagement(books);
+            }
         }
 
 
@@ -57,17 +58,17 @@ namespace Lab1
         {
             string[] fields;
             string line, title, publisher, date;
-            Boolean toobig, toosmall;            
-            int issue;            
+            Boolean toobig, toosmall;
+            int issue;
             decimal bookValue, marketValue;
-            ComicBook[] books = null;   
+            ComicBook[] books = null;
             try
-            {                
-                FileStream file = new FileStream(@"comics.txt", FileMode.Open, FileAccess.Read);        
-                StreamReader data = new StreamReader(file);                                             
+            {
+                FileStream file = new FileStream(@"comics.txt", FileMode.Open, FileAccess.Read);
+                StreamReader data = new StreamReader(file);
                 int numberOfLinesintxt = File.ReadLines(@"comics.txt").Count();
                 toobig = (numberOfLinesintxt < 100) ? false : true; /// If number of lines less than 100,  toobig is false. 
-                toosmall = (numberOfLinesintxt > 0 ) ? false : true; /// If number of lines greater than zero,  toosmall is false.                 
+                toosmall = (numberOfLinesintxt > 0) ? false : true; /// If number of lines greater than zero,  toosmall is false.                 
                 if (toobig == false)
                 {
                     if (toosmall == false)
@@ -86,23 +87,23 @@ namespace Lab1
                             marketValue = Convert.ToDecimal(fields[5]);
                             books[countofLines] = new ComicBook(publisher, title, issue, date, bookValue, marketValue);
                             countofLines++;
-                        }                        
+                        }
                         data.Close();
-                        file.Close();                     
+                        file.Close();
                     }
                     else
                     {
                         Console.WriteLine(" Not enough lines in comic.txt.");
                         data.Close();
-                        file.Close();                        
+                        file.Close();
                     }
                 }
                 else
                 {
-                    Console.WriteLine(" Too many Lines in comic.txt.");            
+                    Console.WriteLine(" Too many Lines in comic.txt.");
                     data.Close();
                     file.Close();
-                    
+
                 }
             }
             catch (IOException io)
@@ -148,10 +149,10 @@ namespace Lab1
         /// </summary>
         /// <returns> The choice of sort as a numeric value. </returns>
         public static void MenuInputManagement(ComicBook[] books)
-        {                       
-            String input; int inputinteger = 0;                                                    
+        {
+            String input; int inputinteger = 0;
             do
-            {                
+            {
                 Console.WriteLine("");
                 Console.WriteLine("Pick one of these seven options ");
                 Console.WriteLine("     1 Sort by Publisher Name (ascending)");
@@ -162,14 +163,14 @@ namespace Lab1
                 Console.WriteLine("     6 Sort by Market Value (descending)");
                 Console.WriteLine("     7 Exit ");
                 Console.Write(":");
-                input = Console.ReadLine();                                
+                input = Console.ReadLine();
                 try
-                {                    
+                {
                     inputinteger = Convert.ToInt32(input);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(" Input was not a number. Please enter a number between 1 and 7.");                    
+                    Console.WriteLine(" Input was not a number. Please enter a number between 1 and 7.");
                 };
 
                 if (inputinteger > 0 && inputinteger <= 7)
@@ -182,14 +183,14 @@ namespace Lab1
                     {
                         books = mySelectionSort(books, inputinteger);
                         DisplayTable(books);
-                    }                                                                                                 
+                    }
                 }
                 else
-                {            
-                    Console.WriteLine("Input has to be between 1 to 7. try again. \n");                        
+                {
+                    Console.WriteLine("Input has to be between 1 to 7. try again. \n");
                 }
-                
-            } while ( inputinteger != 7);                         
+
+            } while (inputinteger != 7);
         }
 
 
@@ -203,7 +204,7 @@ namespace Lab1
         /// <returns></returns>
         public static ComicBook[] mySelectionSort(ComicBook[] books, int inputinteger)
         {
-            int startScan; int index; int minIndex; 
+            int startScan; int index; int minIndex;
             ComicBook minValue;
             int SelectCompare = 0;
             for (startScan = 0; startScan < (books.Length - 1); startScan++)
@@ -237,7 +238,7 @@ namespace Lab1
                             }
                             break;
                         case 4:
-                            if (books[index].GetDate().CompareTo(minValue.GetDate()) < 0 )
+                            if (books[index].GetDate().CompareTo(minValue.GetDate()) < 0)
                             {
                                 minValue = books[index];
                                 minIndex = index;
@@ -333,9 +334,7 @@ namespace Lab1
             return val_month;
         }
 
-
     }
-
 }
 
 

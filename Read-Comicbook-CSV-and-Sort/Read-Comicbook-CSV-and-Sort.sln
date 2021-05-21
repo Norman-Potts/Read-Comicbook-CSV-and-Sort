@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Read-Comicbook-CSV-and-Sort", "Read-Comicbook-CSV-and-Sort.csproj", "{0B845F9B-AD59-4156-9423-9599CA7301D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B845F9B-AD59-4156-9423-9599CA7301D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B845F9B-AD59-4156-9423-9599CA7301D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B845F9B-AD59-4156-9423-9599CA7301D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B845F9B-AD59-4156-9423-9599CA7301D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26E5E484-4140-4545-A446-91F5E2BEEA0B}
+	EndGlobalSection
+EndGlobal
